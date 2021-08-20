@@ -138,6 +138,9 @@ public class GenericApplicationContext implements ApplicationContext {
         try {
             return beanObject.getClass().getDeclaredMethod(setterName, Double.TYPE);
         } catch (NoSuchMethodException ignored) {}
+        try {
+            return beanObject.getClass().getDeclaredMethod(setterName, Boolean.TYPE);
+        } catch (NoSuchMethodException ignored) {}
         throw new NoSuchMethodException();
     }
 
